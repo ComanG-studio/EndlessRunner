@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     private bool _onGround = true;
     private int maxJump = 2;
     private int currentJump;
+    [SerializeField] private float _gravityscale = 1;
 
     void Start()
     {
@@ -31,4 +32,5 @@ public class Player : MonoBehaviour
         _onGround = true;
         currentJump = 0;
     }
+
 }
