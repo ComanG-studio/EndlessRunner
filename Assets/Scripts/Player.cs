@@ -1,20 +1,36 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    private float jumpSpeed = 5f;
+    private Rigidbody _rigidbody;
+    private bool _onGround = true;
+    private int maxJump = 2;
+    private int currentJump;
+    [SerializeField] private float _gravityscale = 1;
+
+    void Start()
+    {
+        _rigidbody = GetComponent<Rigidbody>();
+    }
+
     private void Update()
     {
-        //line 1
-        //line2
-        //line 3
-        //line4
-        // line 5
-        // line 6
-        //line7
-        //line 8
-        //line9
-        //line 10
+        if (Input.GetKeyDown("space") && (_onGround || maxJump > currentJump))
+        {
+            _rigidbody.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
+            _onGround = false;
+            currentJump++;
+        }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        _onGround = true;
+        currentJump = 0;
+    }
+
 }
