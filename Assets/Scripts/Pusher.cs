@@ -7,6 +7,7 @@ public class Pusher : MonoBehaviour
     private Rigidbody _myRigidbody;
     [SerializeField]
     private float _speed;
+    public event System.Action OnDestroy;
 
     private void Awake()
     {
@@ -15,14 +16,13 @@ public class Pusher : MonoBehaviour
 
     void FixedUpdate()
     {
-        _myRigidbody.velocity = Vector3.right * _speed;
+        _myRigidbody.AddForce(-1*_speed,0,0);
     }
 
-            private void OnCollisionEnter(Collision other)
+            private void OnTriggerExit()
             {
-                if (other.gameObject.tag == "Wall") 
-                {
-                    GameObject.Destroy(this);
-                }
+                 OnDestroy();
+                 GameObject.Destroy(this.gameObject);
+                
             }
 }
