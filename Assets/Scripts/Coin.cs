@@ -1,10 +1,17 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-    [SerializeField] private float _spinSpeed;
-    [SerializeField] private GameObject _prefab;
+    private float _spinSpeed = 200;
     [SerializeField] private Material _material;
+    private MeshRenderer _meshRenderer;
+
+    private void Start()
+    {
+        _meshRenderer = GetComponent<MeshRenderer>();
+        _meshRenderer.material = _material;
+    }
 
     private void Update()
     {
@@ -23,13 +30,5 @@ public class Coin : MonoBehaviour
     {
         var speed = _spinSpeed * Time.deltaTime;
         transform.Rotate(Vector3.up, speed, Space.World);
-    }
-
-    /// <summary>
-    ///     Instantiate an instance of a coin at a given point
-    /// </summary>
-    public void CreateCoin(Vector3 spawnPosition)
-    {
-        var newCoin = Instantiate(_prefab, spawnPosition, Quaternion.identity);
     }
 }
