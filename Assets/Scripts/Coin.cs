@@ -20,6 +20,7 @@ public class Coin : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        //GameManager._gameManager.AddScore();
         Destroy(gameObject);
     }
 

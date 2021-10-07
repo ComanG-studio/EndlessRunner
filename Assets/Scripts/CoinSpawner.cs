@@ -16,6 +16,6 @@ public class CoinSpawner : MonoBehaviour
 
     private void Start()
     {
-        SpawnCoinAt(Vector3.zero);
+        SpawnCoinAt(new Vector3(0,10,0));
     }
 }
