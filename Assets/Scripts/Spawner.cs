@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 public class Spawner : MonoBehaviour
 {
-
+    /*
     [SerializeField]
     public Transform _platformPrefab;
 
@@ -21,5 +21,5 @@ public class Spawner : MonoBehaviour
     private void OnPlatformDestroy()
     {
         Instantiate (_platformPrefab, Vector3.up*Random.Range(-3f, 4f), Quaternion.identity) ;
-    }
+    }*/
 }

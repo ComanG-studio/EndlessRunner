@@ -3,7 +3,8 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 public class Pusher : MonoBehaviour
-{
+{/*  Event into manager
+  
     private Rigidbody _myRigidbody;
     [SerializeField]
     private float _speed;
@@ -24,5 +25,5 @@ public class Pusher : MonoBehaviour
                  OnDestroy();
                  GameObject.Destroy(this.gameObject);
                 
-            }
+            }*/
 }
