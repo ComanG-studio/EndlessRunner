@@ -1,20 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private void Update()
+    private float jumpSpeed = 5f;
+    private Rigidbody rigidbody;
+    private bool onGround;
+
+    void Start()
     {
-        //line 1
-        //line2
-        //line 3
-        //line4
-        // line 5
-        // line 6
-        //line7
-        //line 8
-        //line9
-        //line 10
+        rigidbody = GetComponent<Rigidbody>();
     }
+
+    
 }
