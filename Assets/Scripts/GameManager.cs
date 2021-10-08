@@ -37,6 +37,20 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void PauseResumeGame()
     {
-        GameObject.FindObjectOfType<UIManager>().PauseGame();
+
+        if (GameObject.FindObjectOfType<UIManager>().CheckGameInPause())
+        {
+            Debug.Log("Game in Pause");
+            GameObject.FindObjectOfType<UIManager>().PauseResumeGameButton();
+        }
+        else if (GameObject.FindObjectOfType<UIManager>().CheckGameInPause() == false)
+        {
+            Debug.Log("Resume");
+            GameObject.FindObjectOfType<UIManager>().PauseResumeGameButton();
+        }
+
+
     }
+
+
 }
