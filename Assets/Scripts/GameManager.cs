@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
 
     public void AddScore()
     {
-        FindObjectOfType<ScoreManager>().AddScore(1);
+        GameObject.FindObjectOfType<ScoreManager>().AddScore(1);
         Debug.Log("Score now: " + FindObjectOfType<ScoreManager>().CurrentScore);
     }
 }
