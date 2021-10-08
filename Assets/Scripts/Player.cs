@@ -5,32 +5,40 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private float jumpSpeed = 5f;
     private Rigidbody _rigidbody;
-    private bool _onGround = true;
-    private int maxJump = 2;
-    private int currentJump;
+    [SerializeField] private float _jumpForce = 10f;
+    private int jumpCount = 0;
     [SerializeField] private float _gravityscale = 1;
 
-    void Start()
+    private bool isGrounded = false;
+    private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
     }
 
-    private void Update()
+    private void OnCollisionEnter(Collision other)
     {
-        if (Input.GetKeyDown("space") && (_onGround || maxJump > currentJump))
-        {
-            _rigidbody.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
-            _onGround = false;
-            currentJump++;
-        }
+        jumpCount = 0;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void Update()
     {
-        _onGround = true;
-        currentJump = 0;
+        AddGravity();
+        Jump();
+    }
+
+    public void AddGravity()
+    {
+        _rigidbody.AddForce(_gravityscale * Vector3.up * -9.81f);
+    }
+
+    public void Jump()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && jumpCount <= 1)
+        {
+            _rigidbody.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
+            jumpCount++;
+        }
     }
 
 }
