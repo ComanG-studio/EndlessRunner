@@ -18,6 +18,15 @@ public class GameManager : MonoBehaviour
     public void AddScore(float score)
     {
         GameObject.FindObjectOfType<ScoreManager>().AddScore(score);
-        GameObject.FindObjectOfType<UIManager>().AddScore(score);
+        GameObject.FindObjectOfType<UIManager>().SetScore(score);
+    }
+
+    // вызываетс€ по первому прыжку м€ча
+    public void StartGame()
+    {
+        Debug.Log("StartGame");
+        GameObject.FindObjectOfType<ScoreManager>().ScoreToZero();
+        GameObject.FindObjectOfType<UIManager>().SetScore(0f);
+        // Start moving platforms
     }
 }

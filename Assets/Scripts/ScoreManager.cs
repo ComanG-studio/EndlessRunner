@@ -12,5 +12,12 @@ public class ScoreManager : MonoBehaviour
     {
         CurrentScore += score;
     }
-    
+
+    /// <summary>
+    ///     Set current score to zero
+    /// </summary>
+    public void ScoreToZero()
+    {
+        CurrentScore = 0f;
+    }
 }
