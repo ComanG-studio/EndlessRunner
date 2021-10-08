@@ -42,14 +42,16 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Game in Pause");
             GameObject.FindObjectOfType<UIManager>().Resume();
+            GameObject.FindObjectOfType<Player>().StopBall();
+            // stop moving platforms
         }
         else if (GameObject.FindObjectOfType<UIManager>().CheckGameInPause() == false) // Resume
         {
             Debug.Log("Resume");
             GameObject.FindObjectOfType<UIManager>().Pause();
+            GameObject.FindObjectOfType<Player>().StartBall();
+            // start moving platforms
         }
-
-
     }
 
 

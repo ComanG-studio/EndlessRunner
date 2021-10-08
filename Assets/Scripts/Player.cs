@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float _jumpHeight = 10f;
-    [SerializeField] private float _gravityScale = 1;
+    private float _jumpHeight = 15f;
+    private float _gravityScale = 1;
     private bool _firstJump;
     private int _jumpCount;
     private Rigidbody _rigidbody;
+    private float _gravity = -9.8f;
 
     private void Awake()
     {
@@ -16,6 +17,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        StartBall();
     }
 
     private void Update()
@@ -34,7 +36,7 @@ public class Player : MonoBehaviour
 
     public void AddGravity()
     {
-        _rigidbody.AddForce(_gravityScale * Vector3.up * -9.81f);
+        _rigidbody.AddForce(_gravityScale * Vector3.up * _gravity);
     }
 
     /// <summary>
@@ -65,5 +67,22 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && _firstJump)
             return true;
         return false;
+    }
+
+    public void StopBall()
+    {
+        _jumpHeight = 0;
+        _gravityScale = 0;
+        _gravity = 0;
+        _rigidbody.Sleep();
+
+    }
+
+    public void StartBall()
+    {
+        _jumpHeight = 10f;
+        _gravityScale = 1;
+        _gravity = -9.8f;
+        _rigidbody.WakeUp();
     }
 }
