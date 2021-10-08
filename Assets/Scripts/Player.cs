@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
             _rigidbody.AddForce(Vector3.up * _jumpHeight, ForceMode.Impulse);
             _jumpCount++;
         }
-    }//
+    }
 
     /// <summary>
     ///     Check if the ball do his first jump ever
@@ -62,5 +62,4 @@ public class Player : MonoBehaviour
             return true;
         return false;
     }
-    //asdfasdf
 }
