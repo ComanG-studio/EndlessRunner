@@ -13,11 +13,21 @@ public class UIManager : MonoBehaviour
         _currentScore.text = CurrentScore.ToString();
     }
 
-    public void PauseGame()
+    public void PauseResumeGameButton()
+    {
+        // Change Button lable
+        if (_pauseResumeButton.text == "Pause") _pauseResumeButton.text = "Resume";
+
+        else if (_pauseResumeButton.text == "Resume") _pauseResumeButton.text = "Pause";
+    }
+
+    public bool CheckGameInPause()
     {
         if (_pauseResumeButton.text == "Pause")
-            _pauseResumeButton.text = "Resume";
-        else if (_pauseResumeButton.text == "Resume")
-            _pauseResumeButton.text = "Pause";
+        {
+            return true;
+        }
+
+        return false;
     }
 }
