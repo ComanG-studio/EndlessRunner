@@ -2,19 +2,21 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager _gameManager;
+    public static GameManager game;
 
     private void Awake()
     {
-        if (_gameManager == null)
-            _gameManager = this;
-        else if (_gameManager != this)
+        if (game == null)
+            game = this;
+        else if (game != this)
             Destroy(gameObject);
     }
 
+    /// <summary>
+    ///     Adds 1 point to the current score
+    /// </summary>
     public void AddScore()
     {
         FindObjectOfType<ScoreManager>().AddScore(1);
-        Debug.Log("Score now: " + FindObjectOfType<ScoreManager>().CurrentScore);
     }
 }
