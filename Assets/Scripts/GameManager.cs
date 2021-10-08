@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager _gameManager;
+    public static GameManager game;
 
     private void Awake()
     {
-        if (_gameManager == null)
-            _gameManager = this;
-        else if (_gameManager != this)
+        if (game == null)
+            game = this;
+        else if (game != this)
             Destroy(gameObject);
     }
 
