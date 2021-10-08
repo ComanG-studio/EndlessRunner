@@ -31,4 +31,14 @@ public class GameManager : MonoBehaviour
         GameObject.FindObjectOfType<UIManager>().SetScore(0f);
         // Start moving platforms
     }
+
+    public void PauseGame()
+    {
+
+    }
+
+    public void ResumeGame()
+    {
+
+    }
 }
