@@ -12,9 +12,11 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
     }
 
+    /// <summary>
+    ///     Adds 1 point to the current score
+    /// </summary>
     public void AddScore()
     {
-        GameObject.FindObjectOfType<ScoreManager>().AddScore(1);
-        Debug.Log("Score now: " + FindObjectOfType<ScoreManager>().CurrentScore);
+        FindObjectOfType<ScoreManager>().AddScore(1);
     }
 }

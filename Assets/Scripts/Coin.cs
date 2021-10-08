@@ -1,11 +1,10 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-    private float _spinSpeed = 200;
     [SerializeField] private Material _material;
     private MeshRenderer _meshRenderer;
+    private readonly float _spinSpeed = 200;
 
     private void Start()
     {
@@ -20,7 +19,7 @@ public class Coin : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //GameManager.game.AddScore();
+        GameManager.game.AddScore();
         Destroy(gameObject);
     }
 
