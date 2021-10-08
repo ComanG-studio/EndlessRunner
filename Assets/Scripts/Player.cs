@@ -37,6 +37,9 @@ public class Player : MonoBehaviour
         _rigidbody.AddForce(_gravityScale * Vector3.up * -9.81f);
     }
 
+    /// <summary>
+    /// Ball do jump
+    /// </summary>
     public void Jump()
     {
         // if this is the first jump ever, then Start Game
