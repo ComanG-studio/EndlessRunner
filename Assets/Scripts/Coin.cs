@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
@@ -19,8 +20,11 @@ public class Coin : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        GameManager.game.AddScore();
-        Destroy(gameObject);
+        if (other.tag == "PlayerBall")
+        {
+            GameManager.game.AddScore(1);
+            Destroy(this.gameObject);
+        }
     }
 
     /// <summary>

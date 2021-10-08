@@ -9,13 +9,8 @@ public class CoinSpawner : MonoBehaviour
     ///     Spawn coin at given position
     /// </summary>
     /// <param name="position"></param>
-    private void SpawnCoinAt(Vector3 position)
+    public void SpawnCoinAt(Vector3 position)
     {
         Instantiate(_prefab, position, _prefab.transform.localRotation);
-    }
-
-    private void Start()
-    {
-        SpawnCoinAt(new Vector3(0,10,0));
     }
 }

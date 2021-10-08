@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wall
   - Coin
+  - PlayerBall
   layers:
   - Default
   - TransparentFX
