@@ -84,5 +84,6 @@ public class Player : MonoBehaviour
         _gravityScale = 1;
         _gravity = -9.8f;
         _rigidbody.WakeUp();
+
     }
 }

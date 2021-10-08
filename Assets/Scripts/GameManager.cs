@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
             game = this;
         else if (game != this)
             Destroy(gameObject);
+        GameObject.FindObjectOfType<UIManager>().HidePauseResumeButton();
     }
 
     /// <summary>
