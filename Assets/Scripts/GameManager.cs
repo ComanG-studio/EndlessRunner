@@ -34,11 +34,11 @@ public class GameManager : MonoBehaviour
 
     public void PauseGame()
     {
-
+        // Pause game
     }
 
     public void ResumeGame()
     {
-
+        // resume game
     }
 }
