@@ -592,7 +592,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentScore: {fileID: 1377602181}
-  _pauseResumeButton: {fileID: 726993721}
+  _pauseResumeButtonLable: {fileID: 726993721}
+  _pauseResumeButton: {fileID: 266938540}
 --- !u!1 &910917350
 GameObject:
   m_ObjectHideFlags: 0

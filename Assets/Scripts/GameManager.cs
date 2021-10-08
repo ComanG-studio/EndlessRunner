@@ -17,42 +17,40 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void AddScore(float score)
     {
-        GameObject.FindObjectOfType<ScoreManager>().AddScore(score);
-        GameObject.FindObjectOfType<UIManager>().SetScore(score);
+        FindObjectOfType<ScoreManager>().AddScore(score);
+        FindObjectOfType<UIManager>().SetScore(score);
     }
 
     /// <summary>
-    /// Starts game. Score to zero, start move platforms etc.
+    ///     Starts game. Score to zero, start move platforms etc.
     /// </summary>
     public void StartGame()
     {
         Debug.Log("StartGame");
-        GameObject.FindObjectOfType<ScoreManager>().ScoreToZero();
-        GameObject.FindObjectOfType<UIManager>().SetScore(0f);
+        FindObjectOfType<ScoreManager>().ScoreToZero();
+        FindObjectOfType<UIManager>().SetScore(0f);
+        FindObjectOfType<UIManager>().ShowPauseResumeButton();
         // Start moving platforms
     }
 
     /// <summary>
-    /// Pause and resume game button
+    ///     Pause and resume game button
     /// </summary>
     public void PauseResumeGame()
     {
-
-        if (GameObject.FindObjectOfType<UIManager>().CheckGameInPause()) // Pause
+        if (FindObjectOfType<UIManager>().CheckGameInPause()) // Pause
         {
             Debug.Log("Game in Pause");
-            GameObject.FindObjectOfType<UIManager>().Resume();
-            GameObject.FindObjectOfType<Player>().StopBall();
+            FindObjectOfType<UIManager>().Resume();
+            FindObjectOfType<Player>().StopBall();
             // stop moving platforms
         }
-        else if (GameObject.FindObjectOfType<UIManager>().CheckGameInPause() == false) // Resume
+        else if (FindObjectOfType<UIManager>().CheckGameInPause() == false) // Resume
         {
             Debug.Log("Resume");
-            GameObject.FindObjectOfType<UIManager>().Pause();
-            GameObject.FindObjectOfType<Player>().StartBall();
+            FindObjectOfType<UIManager>().Pause();
+            FindObjectOfType<Player>().StartBall();
             // start moving platforms
         }
     }
-
-
 }
