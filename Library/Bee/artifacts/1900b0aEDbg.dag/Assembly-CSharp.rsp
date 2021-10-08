@@ -332,10 +332,9 @@
 "Assets/Scripts/Coin.cs"
 "Assets/Scripts/CoinSpawner.cs"
 "Assets/Scripts/GameManager.cs"
+"Assets/Scripts/PlatformSpawner.cs"
 "Assets/Scripts/Player.cs"
-"Assets/Scripts/Pusher.cs"
 "Assets/Scripts/ScoreManager.cs"
-"Assets/Scripts/Spawner.cs"
 "Assets/Scripts/UIManager.cs"
 -langversion:8.0
 
