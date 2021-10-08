@@ -62,15 +62,5 @@ public class Player : MonoBehaviour
             return true;
         return false;
     }
-
-    // /// <summary>
-    // ///     Check if the ball do his first jump ever
-    // /// </summary>
-    // /// <returns></returns>
-    // public bool CheckFirstJump()
-    // {
-    //     if (Input.GetKeyDown(KeyCode.Space) && _firstJump)
-    //         return true;
-    //     return false;
-    // }
+    //asdfasdf
 }
