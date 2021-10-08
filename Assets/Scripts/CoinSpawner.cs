@@ -13,4 +13,13 @@ public class CoinSpawner : MonoBehaviour
     {
         Instantiate(_prefab, position, _prefab.transform.localRotation);
     }
+
+    ///<summary>
+    ///     Spawn coin at given position(overload with parent)
+    /// </summary>
+    public void SpawnCoinAt(Vector3 position,Transform parent)
+    {
+        Instantiate(_prefab, position, _prefab.transform.localRotation,parent);
+    }
+    
 }
