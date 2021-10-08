@@ -62,5 +62,4 @@ public class Player : MonoBehaviour
             return true;
         return false;
     }
-    // asldfkjas;ldfkjasdf
 }
