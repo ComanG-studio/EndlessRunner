@@ -21,7 +21,9 @@ public class GameManager : MonoBehaviour
         GameObject.FindObjectOfType<UIManager>().SetScore(score);
     }
 
-    // вызываетс€ по первому прыжку м€ча
+    /// <summary>
+    /// Starts game. Score to zero, start move platforms etc.
+    /// </summary>
     public void StartGame()
     {
         Debug.Log("StartGame");

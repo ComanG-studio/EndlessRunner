@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.collider.tag == "Platform")
+        if (other.gameObject.tag == "Platform")
         {
             _jumpCount = 0;
         }
@@ -43,6 +43,7 @@ public class Player : MonoBehaviour
         if (CheckFirstJump())
         {
             GameManager.game.StartGame();
+            _rigidbody.AddForce(Vector3.up * _jumpHeight, ForceMode.Impulse);
             _firstJump = false;
         }
         else if (Input.GetKeyDown(KeyCode.Space) && _jumpCount <= 1)
