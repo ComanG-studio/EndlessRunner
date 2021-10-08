@@ -4,7 +4,8 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private Text _currentScore;
-    [SerializeField] private Text _pauseResumeButton;
+    [SerializeField] private Text _pauseResumeButtonLable;
+    [SerializeField] private Button _pauseResumeButton;
     public float CurrentScore { get; private set; }
 
     public void SetScore(float score)
@@ -13,21 +14,30 @@ public class UIManager : MonoBehaviour
         _currentScore.text = CurrentScore.ToString();
     }
 
-    public void PauseResumeGameButton()
+    public void Resume()
     {
-        // Change Button lable
-        if (_pauseResumeButton.text == "Pause") _pauseResumeButton.text = "Resume";
+        if (_pauseResumeButtonLable.text == "Pause") _pauseResumeButtonLable.text = "Resume";
+    }
 
-        else if (_pauseResumeButton.text == "Resume") _pauseResumeButton.text = "Pause";
+    public void Pause()
+    {
+        if (_pauseResumeButtonLable.text == "Resume") _pauseResumeButtonLable.text = "Pause";
     }
 
     public bool CheckGameInPause()
     {
-        if (_pauseResumeButton.text == "Pause")
-        {
-            return true;
-        }
+        if (_pauseResumeButtonLable.text == "Pause") return true;
 
         return false;
+    }
+
+    public void ShowPauseResumeButton()
+    {
+        _pauseResumeButton.gameObject.SetActive(true);
+    }
+
+    public void HidePauseResumeButton()
+    {
+        _pauseResumeButton.gameObject.SetActive(false);
     }
 }
