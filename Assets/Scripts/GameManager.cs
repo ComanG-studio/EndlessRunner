@@ -32,13 +32,11 @@ public class GameManager : MonoBehaviour
         // Start moving platforms
     }
 
-    public void PauseGame()
+    /// <summary>
+    /// Pause and resume game button
+    /// </summary>
+    public void PauseResumeGame()
     {
-        // Pause game
-    }
-
-    public void ResumeGame()
-    {
-        // resume game
+        GameObject.FindObjectOfType<UIManager>().PauseGame();
     }
 }
