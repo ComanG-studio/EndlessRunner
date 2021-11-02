@@ -4,6 +4,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager game;
 
+    public bool IsGameStarted { get; private set; }
+
     private void Awake()
     {
         if (game == null)
@@ -31,7 +33,7 @@ public class GameManager : MonoBehaviour
         FindObjectOfType<ScoreManager>().ScoreToZero();
         FindObjectOfType<UIManager>().SetScore(0f);
         FindObjectOfType<UIManager>().ShowPauseResumeButton();
-        // Start moving platforms
+        IsGameStarted = true;
     }
 
     /// <summary>
@@ -44,14 +46,14 @@ public class GameManager : MonoBehaviour
             Debug.Log("Game in Pause");
             FindObjectOfType<UIManager>().Resume();
             FindObjectOfType<Player>().StopBall();
-            // stop moving platforms
+            IsGameStarted = false;
         }
         else if (FindObjectOfType<UIManager>().CheckGameInPause() == false) // Resume
         {
             Debug.Log("Resume");
             FindObjectOfType<UIManager>().Pause();
             FindObjectOfType<Player>().StartBall();
-            // start moving platforms
+            IsGameStarted = true;
         }
     }
 }

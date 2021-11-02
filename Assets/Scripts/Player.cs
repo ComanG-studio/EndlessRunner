@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private float _jumpHeight = 15f;
+    private float _jumpHeight = 20f;
     private float _gravityScale = 1;
     private bool _firstJump;
     private int _jumpCount;
@@ -44,6 +44,7 @@ public class Player : MonoBehaviour
     /// </summary>
     public void Jump()
     {
+        
         // if this is the first jump ever, then Start Game
         if (CheckFirstJump())
         {
@@ -51,10 +52,11 @@ public class Player : MonoBehaviour
             _rigidbody.AddForce(Vector3.up * _jumpHeight, ForceMode.Impulse);
             _firstJump = false;
         }
-        else if (Input.GetKeyDown(KeyCode.Space) && _jumpCount <= 1)
+        else if (Input.GetKeyDown(KeyCode.Space) || (Input.GetKeyDown(KeyCode.Mouse0))  && _jumpCount <= 1)
         {
             _rigidbody.AddForce(Vector3.up * _jumpHeight, ForceMode.Impulse);
             _jumpCount++;
+            print("JUMP");
         }
     }
 
@@ -64,7 +66,7 @@ public class Player : MonoBehaviour
     /// <returns></returns>
     public bool CheckFirstJump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && _firstJump)
+        if (Input.GetKeyDown(KeyCode.Space) || (Input.GetKeyDown(KeyCode.Mouse0)) && _firstJump)
             return true;
         return false;
     }
